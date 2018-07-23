@@ -13,14 +13,12 @@ namespace AggregateGDPPopulation
     {
             public static async Task CalculateGDPPopulation()
             {
-                string dataFilePath = @"D:\C# assignments\aggregate-gdp-population-csharp-problem-Ritam-majumdar\AggregateGDPPopulation\data\datafile.csv";
-                string writeFilePath = @"D:\C# assignments\aggregate-gdp-population-csharp-problem-Ritam-majumdar\AggregateGDPPopulation\data\outputfilenew.json";
                 JObject CountryVsContinent = JObject.Parse(await File.ReadAllTextAsync("../../../../AggregateGDPPopulation/data/country-continent.json"));
                 List<string> rows = new List<string>();
                 string line;
                 string line1;
                 //string[] data = File.ReadAllLines(dataFilePath);
-                string[] data = await File.ReadAllLinesAsync(dataFilePath);
+                string[] data = await File.ReadAllLinesAsync("../../../../AggregateGDPPopulation/data/datafile.csv");
                 foreach (string str in data)
                 {
                     line = str.Replace("[\"]+", "");
@@ -61,7 +59,7 @@ namespace AggregateGDPPopulation
 
                 }
                 string Json = JsonConvert.SerializeObject(resultset, Formatting.Indented);
-                 await File.WriteAllTextAsync(writeFilePath, Json);
+                 await File.WriteAllTextAsync("../../../../AggregateGDPPopulation/data/outputfilenew.json", Json);
             }
     }
 }
