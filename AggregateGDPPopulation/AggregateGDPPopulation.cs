@@ -14,9 +14,8 @@ namespace AggregateGDPPopulation
             public static async Task CalculateGDPPopulation()
             {
                 string dataFilePath = @"D:\C# assignments\aggregate-gdp-population-csharp-problem-Ritam-majumdar\AggregateGDPPopulation\data\datafile.csv";
-                string mapperFilePath = @"D:\C# assignments\aggregate-gdp-population-csharp-problem-Ritam-majumdar\AggregateGDPPopulation\data\country-continent.json";
                 string writeFilePath = @"D:\C# assignments\aggregate-gdp-population-csharp-problem-Ritam-majumdar\AggregateGDPPopulation\data\outputfilenew.json";
-                JObject CountryVsContinent = JObject.Parse(await File.ReadAllTextAsync(mapperFilePath));
+                JObject CountryVsContinent = JObject.Parse(await File.ReadAllTextAsync("../../../../AggregateGDPPopulation/data/country-continent.json"));
                 List<string> rows = new List<string>();
                 string line;
                 string line1;
